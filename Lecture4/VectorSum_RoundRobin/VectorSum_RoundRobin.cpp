@@ -45,26 +45,11 @@ int main(void)
 	printf("Start the parallel algorithm (%d threads)\n", numThreads);
 	timer.onTimer(1);
 
-	int numElePerThread = VECTOR_SIZE / numThreads;
-	int start[numThreads] = { 0 };
-	int end[numThreads] = { 0 };
-
-	// 스레드별 작업 영역 지정
-	for (int tID = 0; tID < numThreads; tID++) {
-		start[tID] = numElePerThread * tID;
-		end[tID] = numElePerThread * (tID + 1);
-
-		if (tID == numThreads - 1) // for the last thread
-			end[numThreads - 1] = VECTOR_SIZE;
-
-		//printf("\t[T%d] %d ~ %d\n", tID, start[tID], end[tID]);
-	}
-
-	// 병렬처리 영역, 각 스레드는 할당된 영역에 대한 합 계산 수행
+	// 병렬처리 영역
 	#pragma omp parallel num_threads(numThreads)
 	{
 		int tID = omp_get_thread_num();
-		for (int i = start[tID]; i < end[tID]; i++)
+		for (int i = tID ; i < VECTOR_SIZE; i+= numThreads)
 			c_parallel[i] = a[i] + b[i];
 	}
 
