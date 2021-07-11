@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VectorSum_Loop_construct", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Loop_construct_implicit_barrier", "Lecture5\Loop_construct_implicit_barrier\Loop_construct_implicit_barrier.vcxproj", "{B167E222-52AD-490A-BFC9-73190B7B5309}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fibonacci_number", "Lecture5\Fibonacci_number\Fibonacci_number.vcxproj", "{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -87,6 +89,14 @@ Global
 		{B167E222-52AD-490A-BFC9-73190B7B5309}.Release|x64.Build.0 = Release|x64
 		{B167E222-52AD-490A-BFC9-73190B7B5309}.Release|x86.ActiveCfg = Release|Win32
 		{B167E222-52AD-490A-BFC9-73190B7B5309}.Release|x86.Build.0 = Release|Win32
+		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}.Debug|x64.ActiveCfg = Debug|x64
+		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}.Debug|x64.Build.0 = Debug|x64
+		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}.Debug|x86.ActiveCfg = Debug|Win32
+		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}.Debug|x86.Build.0 = Debug|Win32
+		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}.Release|x64.ActiveCfg = Release|x64
+		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}.Release|x64.Build.0 = Release|x64
+		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}.Release|x86.ActiveCfg = Release|Win32
+		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +109,7 @@ Global
 		{597650E1-0C6C-4963-94F2-7BD8605F89A6} = {2A68F472-4B1D-42BB-A3EB-5258AA004E07}
 		{709F576F-6766-4478-AC9B-175171A83F02} = {2A68F472-4B1D-42BB-A3EB-5258AA004E07}
 		{B167E222-52AD-490A-BFC9-73190B7B5309} = {2A68F472-4B1D-42BB-A3EB-5258AA004E07}
+		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64} = {2A68F472-4B1D-42BB-A3EB-5258AA004E07}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F85A5FC5-EBE9-47E1-8818-130C665B1E75}

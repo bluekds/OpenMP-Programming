@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <omp.h>
 
+int computeValue(int i) { return i; }
+
 int main(void)
 {
 	int a[10] = { 0 };
@@ -11,13 +13,13 @@ int main(void)
 	{
 		#pragma omp for
 		for (int i = 0; i < 10; i++)
-			a[i] = i;
+			a[i] = computeValue(i);
 
 		// implicit barrier here
 
 		#pragma omp for
-		for (int i = 0; i < 10; i++)
-			b[i] = 2 * a[(i+1)%10];
+		for (int i = 0; i < 9; i++)
+			b[i] = 2 * a[(i+1)];
 	}
 
 
