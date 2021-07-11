@@ -45,13 +45,9 @@ int main(void)
 	printf("Start the parallel algorithm (%d threads)\n", numThreads);
 	timer.onTimer(1);
 
-	// 병렬처리 영역
-	#pragma omp parallel num_threads(numThreads)
-	{
-		int tID = omp_get_thread_num();
-		for (int i = tID ; i < VECTOR_SIZE; i+= numThreads)
-			c_parallel[i] = a[i] + b[i];
-	}
+	#pragma omp parallel for
+	for (int i = 0; i < VECTOR_SIZE; i++)
+		c_serial[i] = a[i] + b[i];
 
 	timer.offTimer(1);
 

@@ -85,5 +85,9 @@ int main(void)
 	// Print processing times
 	timer.printTimer();
 
+	delete[] a;
+	delete[] b;
+	delete[] c_serial;
+	delete[] c_parallel;
 	return 0;
 }
