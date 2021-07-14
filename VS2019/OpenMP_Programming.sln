@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Section_construct", "Lectur
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Single_construct", "Lecture6\Single_construct\Single_construct.vcxproj", "{46725340-511F-4DA9-8AE2-1DB7AB203D77}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nowait_clause", "Lecture6\nowait_clause\nowait_clause.vcxproj", "{4F0178E7-D56E-4D59-9C31-32F333D095DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -119,6 +121,14 @@ Global
 		{46725340-511F-4DA9-8AE2-1DB7AB203D77}.Release|x64.Build.0 = Release|x64
 		{46725340-511F-4DA9-8AE2-1DB7AB203D77}.Release|x86.ActiveCfg = Release|Win32
 		{46725340-511F-4DA9-8AE2-1DB7AB203D77}.Release|x86.Build.0 = Release|Win32
+		{4F0178E7-D56E-4D59-9C31-32F333D095DD}.Debug|x64.ActiveCfg = Debug|x64
+		{4F0178E7-D56E-4D59-9C31-32F333D095DD}.Debug|x64.Build.0 = Debug|x64
+		{4F0178E7-D56E-4D59-9C31-32F333D095DD}.Debug|x86.ActiveCfg = Debug|Win32
+		{4F0178E7-D56E-4D59-9C31-32F333D095DD}.Debug|x86.Build.0 = Debug|Win32
+		{4F0178E7-D56E-4D59-9C31-32F333D095DD}.Release|x64.ActiveCfg = Release|x64
+		{4F0178E7-D56E-4D59-9C31-32F333D095DD}.Release|x64.Build.0 = Release|x64
+		{4F0178E7-D56E-4D59-9C31-32F333D095DD}.Release|x86.ActiveCfg = Release|Win32
+		{4F0178E7-D56E-4D59-9C31-32F333D095DD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -134,6 +144,7 @@ Global
 		{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64} = {2A68F472-4B1D-42BB-A3EB-5258AA004E07}
 		{7859FFB2-CC0B-4C0D-9187-75D068BD3F6E} = {49167A2A-4B32-4210-953F-23DE759D9709}
 		{46725340-511F-4DA9-8AE2-1DB7AB203D77} = {49167A2A-4B32-4210-953F-23DE759D9709}
+		{4F0178E7-D56E-4D59-9C31-32F333D095DD} = {49167A2A-4B32-4210-953F-23DE759D9709}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F85A5FC5-EBE9-47E1-8818-130C665B1E75}
