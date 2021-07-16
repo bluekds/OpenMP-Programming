@@ -51,6 +51,7 @@ int main(int argc, char* argv[])
 			EXIT_WIHT_KEYPRESS;
 		}
 	}
+	printf("Results are matched! :)");
 
 	timer.printTimer();
 	EXIT_WIHT_KEYPRESS;

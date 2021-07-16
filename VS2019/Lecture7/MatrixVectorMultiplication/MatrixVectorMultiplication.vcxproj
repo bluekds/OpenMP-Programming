@@ -146,7 +146,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\Common\DS_timer.cpp" />
     <ClCompile Include="..\..\..\Lecture7\MatrixVectorMultiplication\MatrixVectorMultiplication.cpp" />
-    <ClCompile Include="..\..\..\Lecture7\MatrixVectorMultiplication\MatrixVectorMultiplication_skeleton.cpp" />
+    <Text Include="..\..\..\Lecture7\MatrixVectorMultiplication\MatrixVectorMultiplication_skeleton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Common\DS_definitions.h" />
