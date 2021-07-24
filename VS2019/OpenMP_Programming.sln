@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hello OpenMP", "Lecture3\Hello OpenMP\Hello OpenMP.vcxproj", "{094B7FE6-E8C9-48B6-8726-ACF079CA422F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture3", "Lecture3", "{3DD66E6A-08FF-4A2A-8527-1479B7682F01}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture03", "Lecture03", "{3DD66E6A-08FF-4A2A-8527-1479B7682F01}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture4", "Lecture4", "{4A497499-D2E0-4A8E-A6CA-9EA98B2C1351}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture04", "Lecture04", "{4A497499-D2E0-4A8E-A6CA-9EA98B2C1351}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Parallel construct", "Lecture4\Parallel construct\Parallel construct.vcxproj", "{EBAF223D-B1A5-4F36-A7F1-D2B1701013BD}"
 EndProject
@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VectorSum", "Lecture4\Vecto
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VectorSum_RoundRobin", "Lecture4\VectorSum_RoundRobin\VectorSum_RoundRobin.vcxproj", "{906BC602-1DA3-4A50-9F62-1A5CECD2EF49}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture5", "Lecture5", "{2A68F472-4B1D-42BB-A3EB-5258AA004E07}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture05", "Lecture05", "{2A68F472-4B1D-42BB-A3EB-5258AA004E07}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Loop_construct_example", "Lecture5\Loop_construct_example\Loop_construct_example.vcxproj", "{597650E1-0C6C-4963-94F2-7BD8605F89A6}"
 EndProject
@@ -25,7 +25,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Loop_construct_implicit_bar
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fibonacci_number", "Lecture5\Fibonacci_number\Fibonacci_number.vcxproj", "{73BB920E-33FC-42E3-A9D5-6C3E70CD8E64}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture6", "Lecture6", "{49167A2A-4B32-4210-953F-23DE759D9709}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture06", "Lecture06", "{49167A2A-4B32-4210-953F-23DE759D9709}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Section_construct", "Lecture6\Section_construct\Section_construct.vcxproj", "{7859FFB2-CC0B-4C0D-9187-75D068BD3F6E}"
 EndProject
@@ -33,11 +33,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Single_construct", "Lecture
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nowait_clause", "Lecture6\nowait_clause\nowait_clause.vcxproj", "{4F0178E7-D56E-4D59-9C31-32F333D095DD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture7", "Lecture7", "{D65521B5-C601-41DA-BC65-7C3783C818BE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture07", "Lecture07", "{D65521B5-C601-41DA-BC65-7C3783C818BE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MatrixVectorMultiplication", "Lecture7\MatrixVectorMultiplication\MatrixVectorMultiplication.vcxproj", "{BD7F8867-B4A3-4B3C-986C-E0C71AE36246}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture8", "Lecture8", "{685B27C2-F362-4BF0-BF8F-4E7FE61E1DC0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture08", "Lecture08", "{685B27C2-F362-4BF0-BF8F-4E7FE61E1DC0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScopeOfVariables", "Lecture8\ScopeOfVariables\ScopeOfVariables.vcxproj", "{DA779A2C-D594-46A4-B79E-A6502621B2EB}"
 EndProject
@@ -49,9 +49,17 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lastprivate_clause", "Lectu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Firstprivate_clause", "Lecture8\Firstprivate_clause\Firstprivate_clause.vcxproj", "{748CAB50-5571-4252-AB57-38079B1EA99B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture9", "Lecture9", "{5992DFED-04EC-49E6-86EF-123F9C9281D6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture09", "Lecture09", "{5992DFED-04EC-49E6-86EF-123F9C9281D6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Trapezoidal", "Lecture9\Trapezoidal\Trapezoidal.vcxproj", "{33D7ADA2-A932-4342-B4E0-59B0B8492551}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lecture10", "Lecture10", "{AAB73BEE-A6C7-4ED2-8741-C5EFB2BC8558}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExplicitBarrier_example1", "Lecture10\ExplicitBarrier_example1\ExplicitBarrier_example1.vcxproj", "{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExplicitBarrier_example2", "Lecture10\ExplicitBarrier_example2\ExplicitBarrier_example2.vcxproj", "{359CB110-5BEF-48D2-A233-225D91019F36}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MasterSlave", "Lecture10\MasterSlave\MasterSlave.vcxproj", "{76249B2F-C3C0-4936-895C-162A522C470C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -205,6 +213,30 @@ Global
 		{33D7ADA2-A932-4342-B4E0-59B0B8492551}.Release|x64.Build.0 = Release|x64
 		{33D7ADA2-A932-4342-B4E0-59B0B8492551}.Release|x86.ActiveCfg = Release|Win32
 		{33D7ADA2-A932-4342-B4E0-59B0B8492551}.Release|x86.Build.0 = Release|Win32
+		{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4}.Debug|x64.ActiveCfg = Debug|x64
+		{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4}.Debug|x64.Build.0 = Debug|x64
+		{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4}.Debug|x86.ActiveCfg = Debug|Win32
+		{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4}.Debug|x86.Build.0 = Debug|Win32
+		{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4}.Release|x64.ActiveCfg = Release|x64
+		{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4}.Release|x64.Build.0 = Release|x64
+		{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4}.Release|x86.ActiveCfg = Release|Win32
+		{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4}.Release|x86.Build.0 = Release|Win32
+		{359CB110-5BEF-48D2-A233-225D91019F36}.Debug|x64.ActiveCfg = Debug|x64
+		{359CB110-5BEF-48D2-A233-225D91019F36}.Debug|x64.Build.0 = Debug|x64
+		{359CB110-5BEF-48D2-A233-225D91019F36}.Debug|x86.ActiveCfg = Debug|Win32
+		{359CB110-5BEF-48D2-A233-225D91019F36}.Debug|x86.Build.0 = Debug|Win32
+		{359CB110-5BEF-48D2-A233-225D91019F36}.Release|x64.ActiveCfg = Release|x64
+		{359CB110-5BEF-48D2-A233-225D91019F36}.Release|x64.Build.0 = Release|x64
+		{359CB110-5BEF-48D2-A233-225D91019F36}.Release|x86.ActiveCfg = Release|Win32
+		{359CB110-5BEF-48D2-A233-225D91019F36}.Release|x86.Build.0 = Release|Win32
+		{76249B2F-C3C0-4936-895C-162A522C470C}.Debug|x64.ActiveCfg = Debug|x64
+		{76249B2F-C3C0-4936-895C-162A522C470C}.Debug|x64.Build.0 = Debug|x64
+		{76249B2F-C3C0-4936-895C-162A522C470C}.Debug|x86.ActiveCfg = Debug|Win32
+		{76249B2F-C3C0-4936-895C-162A522C470C}.Debug|x86.Build.0 = Debug|Win32
+		{76249B2F-C3C0-4936-895C-162A522C470C}.Release|x64.ActiveCfg = Release|x64
+		{76249B2F-C3C0-4936-895C-162A522C470C}.Release|x64.Build.0 = Release|x64
+		{76249B2F-C3C0-4936-895C-162A522C470C}.Release|x86.ActiveCfg = Release|Win32
+		{76249B2F-C3C0-4936-895C-162A522C470C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,6 +260,9 @@ Global
 		{1F049F70-6600-45A2-BB2F-469D3FED7438} = {685B27C2-F362-4BF0-BF8F-4E7FE61E1DC0}
 		{748CAB50-5571-4252-AB57-38079B1EA99B} = {685B27C2-F362-4BF0-BF8F-4E7FE61E1DC0}
 		{33D7ADA2-A932-4342-B4E0-59B0B8492551} = {5992DFED-04EC-49E6-86EF-123F9C9281D6}
+		{E58EE9BE-1FE0-4BA0-B0A8-91C4AAF9CDB4} = {AAB73BEE-A6C7-4ED2-8741-C5EFB2BC8558}
+		{359CB110-5BEF-48D2-A233-225D91019F36} = {AAB73BEE-A6C7-4ED2-8741-C5EFB2BC8558}
+		{76249B2F-C3C0-4936-895C-162A522C470C} = {AAB73BEE-A6C7-4ED2-8741-C5EFB2BC8558}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F85A5FC5-EBE9-47E1-8818-130C665B1E75}
