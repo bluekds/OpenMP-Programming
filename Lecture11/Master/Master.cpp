@@ -15,20 +15,21 @@ int getOrder() {
 }
 
 int main(void) {
-
 	int order[4] = { 0 };
 	#pragma omp parallel num_threads(4)
 	{
+		int isMaster = 0;
 		int tID = omp_get_thread_num();
-		
-		if (tID == 0) { // master thread
-			for (int i = 1; i < 4; i++)
+
+		#pragma omp master
+		{
+			isMaster = 1;
+			for (int i = 0; i < 4; i++)
 				order[i] = getOrder();
 		}
-
 		#pragma omp barrier
 
-		if (tID != 0) // slave workers
+		if (!isMaster)
 			printf("Thread-%d cooks %d\n", tID, order[tID]);
 	}
 
