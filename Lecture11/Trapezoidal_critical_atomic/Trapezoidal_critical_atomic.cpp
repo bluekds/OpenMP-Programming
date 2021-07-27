@@ -28,9 +28,9 @@ int main(void)
 {
 	DS_timer timer(Algorithm::END);
 	timer.setTimerName(Algorithm::Serial, (char*)"Serial algorithm");
-	timer.setTimerName(Algorithm::Parallel_offset, (char*)"Parallel algorithm with offset");
-	timer.setTimerName(Algorithm::Parallel_Critical, (char*)"Parallel algorithm with offset");
-	timer.setTimerName(Algorithm::Parallel_Atomic, (char*)"Parallel algorithm with offset");
+	timer.setTimerName(Algorithm::Parallel_offset, (char*)"Parallel algorithm");
+	timer.setTimerName(Algorithm::Parallel_Critical, (char*)"Parallel algorithm - critical section");
+	timer.setTimerName(Algorithm::Parallel_Atomic, (char*)"Parallel algorithm - atomic");
 
 	double a = -1, b = 1;
 	int n = (1024 * 1024 * 1024);
