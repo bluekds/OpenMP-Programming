@@ -80,8 +80,6 @@ void histogram_Paralle_lock4eachBin(float* _input, int* _output) {
 	for(int i = 0 ; i < NUM_BINS; i++)
 		omp_init_lock(&locks[i]);
 
-	int bin_v1_2[NUM_BINS] = { 0 };
-
 	#pragma omp parallel for num_threads(NUM_THREADS)
 	for (int i = 0; i < NUM_ELEMENTS; i++)
 	{
