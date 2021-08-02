@@ -7,6 +7,7 @@
 #define NUM_ELEMENTS (1024*1024*1024)
 #define NUM_BINS (10)
 #define NUM_THREADS (4)
+#define LOCAL_BIN_SIZE (128)
 
 enum Algorithm {Serial, Parallel_critical, Paralle_lock4eachBin
 	, Parallel_localBin, Parallel_localBin_wo_lock
@@ -94,28 +95,30 @@ void histogram_Paralle_lock4eachBin(float* _input, int* _output) {
 }
 
 void histogram_Parallel_localBin(float* _input, int* _output) {
+	
+	int localBins[NUM_THREADS][LOCAL_BIN_SIZE] = { 0 };
 
 	#pragma omp parallel num_threads(NUM_THREADS)
 	{
 		int tID = omp_get_thread_num();
-		int localBin[NUM_BINS] = { 0 };
+	//	int localBin[NUM_BINS] = { 0 };
 
 		#pragma omp for
 		for(int i = 0 ; i < NUM_ELEMENTS ; i++)
-			localBin[(int)_input[i]]++;
+			localBins[tID][(int)_input[i]]++;
 
 		#pragma omp for
 		for (int i = 0; i < NUM_THREADS; i++)
 			for(int j = 0 ; j < NUM_BINS ; j++)
 				#pragma omp atomic
-				_output[j] += localBin[j];
+				_output[j] += localBins[tID][j];
 	}
 }
 
 void histogram_Parallel_localBin_wo_lock(float* _input, int* _output) {
 
 	// To avoid the cache coherency issue, we set the local bin size to 32 (> NUM_bins)
-	int localBins[NUM_THREADS][32] = { 0 };
+	int localBins[NUM_THREADS][LOCAL_BIN_SIZE] = { 0 };
 
 	#pragma omp parallel num_threads(NUM_THREADS)
 	{
@@ -128,14 +131,14 @@ void histogram_Parallel_localBin_wo_lock(float* _input, int* _output) {
 		#pragma omp for
 		for (int i = 0; i < NUM_BINS ; i++)
 			for (int j = 0 ; j < NUM_THREADS; j++)
-			_output[i] += localBins[j][i];
+				_output[i] += localBins[j][i];
 	}
 }
 
 void histogram_Parallel_reduction(float* _input, int* _output) {
 
 	// To avoid the cache coherency issue, we set the local bin size to 32 (> NUM_bins)
-	int localBins[NUM_THREADS][32] = { 0 };
+	int localBins[NUM_THREADS][LOCAL_BIN_SIZE] = { 0 };
 
 	#pragma omp parallel num_threads(NUM_THREADS)
 	{
@@ -167,7 +170,7 @@ void histogram_Parallel_reduction(float* _input, int* _output) {
 
 void histogram_Parallel_reductionV2(float* _input, int* _output) {
 	// To avoid the cache coherency issue, we set the local bin size to 32 (> NUM_bins)
-	int localBins[NUM_THREADS][32] = { 0 };
+	int localBins[NUM_THREADS][LOCAL_BIN_SIZE] = { 0 };
 
 	#pragma omp parallel num_threads(NUM_THREADS)
 	{
