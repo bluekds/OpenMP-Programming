@@ -7,10 +7,10 @@
 #define NUM_ELEMENTS (1024*1024*1024)
 #define NUM_BINS (10)
 #define NUM_THREADS (4)
-#define LOCAL_BIN_SIZE (128)
+#define LOCAL_BIN_SIZE (64)
 
 enum Algorithm {Serial, Parallel_critical, Paralle_lock4eachBin
-	, Parallel_localBin, Parallel_localBin_wo_lock
+	, Parallel_localBin, Parallel_localBin_SerialCollection, Parallel_localBin_wo_lock
 	, Parallel_reduction, Parallel_reductionV2
 	, END};
 
@@ -44,9 +44,9 @@ int main(void)
 	int bins[Algorithm::END][NUM_BINS] = { 0 };
 	genData(data);
 
-	RUN_TEST(Serial);
-	RUN_TEST(Parallel_critical);
-	RUN_TEST(Paralle_lock4eachBin);
+	//RUN_TEST(Serial);
+	//RUN_TEST(Parallel_critical);
+	//RUN_TEST(Paralle_lock4eachBin);
 	RUN_TEST(Parallel_localBin);
 	RUN_TEST(Parallel_localBin_wo_lock);
 	RUN_TEST(Parallel_reduction);
@@ -96,6 +96,8 @@ void histogram_Paralle_lock4eachBin(float* _input, int* _output) {
 
 void histogram_Parallel_localBin(float* _input, int* _output) {
 	
+	omp_lock_t lock;
+	omp_init_lock(&lock);
 	int localBins[NUM_THREADS][LOCAL_BIN_SIZE] = { 0 };
 
 	#pragma omp parallel num_threads(NUM_THREADS)
@@ -109,10 +111,15 @@ void histogram_Parallel_localBin(float* _input, int* _output) {
 
 		#pragma omp for
 		for (int i = 0; i < NUM_THREADS; i++)
-			for(int j = 0 ; j < NUM_BINS ; j++)
-				#pragma omp atomic
+			for (int j = 0; j < NUM_BINS; j++)
+			{
+				omp_set_lock(&lock);
 				_output[j] += localBins[tID][j];
+				omp_unset_lock(&lock);
+			}
+
 	}
+	omp_destroy_lock(&lock);
 }
 
 void histogram_Parallel_localBin_wo_lock(float* _input, int* _output) {
