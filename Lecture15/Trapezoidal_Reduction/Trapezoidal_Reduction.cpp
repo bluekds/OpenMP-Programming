@@ -5,15 +5,15 @@
 
 #define f(_x) (_x*_x)
 #define NUM_THREADS (4)
-#define offset (16)
+#define offset (32)
 
 enum Algorithm {
-	Serial, Parallel_offset, Parallel_Lock, END
+	Serial, Parallel, Parallel_Reduction, END
 };
 
 double Trapezodial_Serial(double a, double b, int n, double h);
-double Trapezodial_Parallel_offset(double a, double b, int n, double h);
-double Trapezodial_Parallel_Lock(double a, double b, int n, double h);
+double Trapezodial_Parallel(double a, double b, int n, double h);
+double Trapezodial_Parallel_Reduction(double a, double b, int n, double h);
 
 #define RUN_TEST(_func, a, b, n, h) { \
 	timer.onTimer(Algorithm::_func); \
@@ -27,8 +27,8 @@ int main(void)
 {
 	DS_timer timer(Algorithm::END);
 	timer.setTimerName(Algorithm::Serial, (char*)"Serial algorithm");
-	timer.setTimerName(Algorithm::Parallel_offset, (char*)"Parallel algorithm");
-	timer.setTimerName(Algorithm::Parallel_Lock, (char*)"Parallel algorithm - Lock");
+	timer.setTimerName(Algorithm::Parallel, (char*)"Parallel algorithm");
+	timer.setTimerName(Algorithm::Parallel_Reduction, (char*)"Parallel algorithm - Reduction");
 
 	double a = -1, b = 1;
 	int n = (1024 * 1024 * 1024);
@@ -39,13 +39,34 @@ int main(void)
 	double sum = 0;
 
 	RUN_TEST(Serial, a, b, n, h);
-	RUN_TEST(Parallel_offset, a, b, n, h);
-	RUN_TEST(Parallel_Lock, a, b, n, h);
+	RUN_TEST(Parallel, a, b, n, h);
+	RUN_TEST(Parallel_Reduction, a, b, n, h);
 
 	timer.printTimer();
 }
 
 /* Function definitions */
+
+double Trapezodial_Parallel_Reduction(double a, double b, int n, double h)
+{
+	double sum = 0;
+
+	#pragma omp parallel num_threads(NUM_THREADS)
+	{
+		#pragma omp for reduction(+:sum)
+		for (int i = 0; i < n - 1; i++)
+		{
+			double x_i = a + h * i;
+			double x_j = a + h * (i + 1);
+			double d = (f(x_i) + f(x_j)) / 2.0;
+
+			sum += d * h;
+		}
+	}
+
+	return sum;
+}
+
 double Trapezodial_Serial(double a, double b, int n, double h)
 {
 	double sum = 0;
@@ -59,15 +80,15 @@ double Trapezodial_Serial(double a, double b, int n, double h)
 	return sum;
 }
 
-double Trapezodial_Parallel_offset(double a, double b, int n, double h)
+double Trapezodial_Parallel(double a, double b, int n, double h)
 {
 	double sum = 0;
 	double local[NUM_THREADS * offset] = { 0 };
-#pragma omp parallel num_threads(NUM_THREADS)
+	#pragma omp parallel num_threads(NUM_THREADS)
 	{
 		int tid = omp_get_thread_num() * offset;
 
-#pragma omp for
+		#pragma omp for
 		for (int i = 0; i < n - 1; i++)
 		{
 			double x_i = a + h * i;
@@ -81,28 +102,5 @@ double Trapezodial_Parallel_offset(double a, double b, int n, double h)
 	for (int i = 0; i < NUM_THREADS; i++)
 		sum += local[i * offset];
 
-	return sum;
-}
-
-double Trapezodial_Parallel_Lock(double a, double b, int n, double h)
-{
-	double sum = 0;
-
-	omp_lock_t sumLock;
-	omp_init_lock(&sumLock);
-
-	#pragma omp parallel for num_threads(NUM_THREADS)
-	for (int i = 0; i < n - 1; i++)
-	{
-		double x_i = a + h * i;
-		double x_j = a + h * (i + 1);
-		double d = (f(x_i) + f(x_j)) / 2.0;
-
-		omp_set_lock(&sumLock);
-		sum += d * h;
-		omp_unset_lock(&sumLock);
-	}
-
-	omp_destroy_lock(&sumLock);
 	return sum;
 }
