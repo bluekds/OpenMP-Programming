@@ -17,6 +17,8 @@ omp_lock_t lock;
 
 void main(void)
 {
+	omp_set_nested(1);
+
 	Node rootNode;
 	rootNode.val = 0;
 	rootNode.depth = 0;
